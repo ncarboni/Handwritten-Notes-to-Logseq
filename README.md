@@ -1,5 +1,7 @@
 # Handwritten Notes to Logseq Note - Converter
 
+#logseq
+
 This script automatically **converts PDFs into Logseq notes** by:
 - Extracting text from scanned PDFs using OpenAI's GPT OCR capabilities
 - Formatting the extracted content in **Logseq block syntax** (Roam-like Markdown)
