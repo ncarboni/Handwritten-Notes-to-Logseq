@@ -1,19 +1,26 @@
 # Handwritten Notes to Logseq Note - Converter
 
-This script automatically **converts a PDF into a Logseq note** by:
-- Extracting text from the PDF using OpenAI OCR
-- Formatting the extracted content in **Logseq block syntax**
-- **Linking** references to existing and virtual pages in your Logseq graph
-- Saving the result as a clean `.md` page directly inside your graph
+This script automatically **converts PDFs into Logseq notes** by:
+- Extracting text from scanned PDFs using OpenAI's GPT OCR capabilities
+- Formatting the extracted content in **Logseq block syntax** (Roam-like Markdown)
+- **Linking** references to existing and virtual (referenced but non-existent) pages in your Logseq graph
+- Automatically skipping already processed PDFs, unless modified
+- Saving each processed note as a clean `.md` file directly inside your graph
+
 
 ## Features
-- Converts each page of a PDF to an image and performs OCR using OpenAI's GPT models
-- Outputs extracted text formatted for **Logseq** (Roam-like Markdown blocks)
-- **Automatically links** page references to:
+
+- Converts each page of a PDF to an image and performs OCR using OpenAI GPT models
+- Outputs extracted text using Logseq/roam block markdown
+- **Automatically links** page mentions to:
   - Existing Logseq pages
-  - Virtual pages mentioned but not yet created
+  - Virtual (referenced but missing) pages
 - Skips unwanted links (e.g., `TODO`, `Journal`, `Notes`)
-- Creates a properly formatted Logseq `.md` file with title, source, and metadata
+- Tracks already processed PDFs in a lightweight `.pdf_processing_index.json`
+- Detects modified PDFs and reprocesses them only when needed
+- Supports `--force` option to reprocess all PDFs
+- Clean title extraction and filename generation
+- Metadata embedded in the note (`title::`, `source::`, `date::`, tags)
 
 ## Requirements
 
@@ -32,7 +39,27 @@ This script automatically **converts a PDF into a Logseq note** by:
    ```
 4. Edit the `LOGSEQ_GRAPH_PATH` variable in the script to point to your Logseq graph location.
 
-## TODO
+## Usage
+```bash
+./pdf_to_logseq.sh [directory] [--force]
+```
 
-- [ ] Keep index of transformed files
-- [ ] Update notes from existing files once modified
+
+## Examples
+
+Process new or modified PDFs in the current directory:
+
+```bash
+./pdf_to_logseq.sh
+```
+Process PDFs in a specific folder:
+
+```bash
+./pdf_to_logseq.sh ./my_notes
+```
+
+Force reprocess all PDFs in a folder:
+
+```bash
+./pdf_to_logseq.sh ./my_notes --force
+```
