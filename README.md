@@ -31,3 +31,8 @@ This script automatically **converts a PDF into a Logseq note** by:
    export OPENAI_API_KEY="your-api-key"
    ```
 4. Edit the `LOGSEQ_GRAPH_PATH` variable in the script to point to your Logseq graph location.
+
+## TODO
+
+- [ ] Keep index of transformed files
+- [ ] Update notes from existing files once modified
