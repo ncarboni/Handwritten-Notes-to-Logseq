@@ -32,16 +32,12 @@ This script automatically **converts PDFs into Logseq notes** by:
 - [jq](https://stedolan.github.io/jq/) (`brew install jq`)
 - OpenAI API Key (you must export it: `export OPENAI_API_KEY='your-api-key'`)
 - A working Logseq graph (local directory structure)
-- An `.env` file located in your home directory (`~/.env`), with the following content:
-```bash
-OPENAI_API_KEY=your-api-key-here
-```
 
 ## Installation
 
 1. Clone this repository or copy the script.
 2. Ensure you have installed the required tools (`ImageMagick`, `jq`).
-3. Set your OpenAI API key as an environment variable:
+3. Set your OpenAI API key as an environment variable in your home directory (`~/.env`):
    ```bash
    export OPENAI_API_KEY="your-api-key"
    ```
