@@ -8,6 +8,8 @@ This script automatically **converts PDFs into Logseq notes** by:
 - **Linking** references to existing and virtual (referenced but non-existent) pages in your Logseq graph
 - Automatically skipping already processed PDFs, unless modified
 - Saving each processed note as a clean `.md` file directly inside your graph
+- The script uses the OpenAI API to perform OCR and transcription.  
+
 
 
 ## Features
@@ -30,6 +32,10 @@ This script automatically **converts PDFs into Logseq notes** by:
 - [jq](https://stedolan.github.io/jq/) (`brew install jq`)
 - OpenAI API Key (you must export it: `export OPENAI_API_KEY='your-api-key'`)
 - A working Logseq graph (local directory structure)
+- An `.env` file located in your home directory (`~/.env`), with the following content:
+```bash
+OPENAI_API_KEY=your-api-key-here
+```
 
 ## Installation
 
